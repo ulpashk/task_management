@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework_simplejwt',
     'rest_framework', 
     'core', 
 ]
@@ -125,16 +126,21 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-REST_FRAMEWORK = { 
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [ 
 
-    'DEFAULT_FILTER_BACKENDS': [ 
+        'rest_framework_simplejwt.authentication.JWTAuthentication', 
 
-        'django_filters.rest_framework.DjangoFilterBackend', 
-
-        'rest_framework.filters.SearchFilter', 
     ], 
 
-    'PAGE_SIZE': 10, 
+    # 'DEFAULT_FILTER_BACKENDS': [ 
+
+    #     'django_filters.rest_framework.DjangoFilterBackend', 
+
+    #     'rest_framework.filters.SearchFilter', 
+    # ], 
+
+    # 'PAGE_SIZE': 10, 
 
 } 
 LOGGING = { 
